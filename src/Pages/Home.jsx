@@ -1,4 +1,5 @@
 import React from "react";
+import ScrollToTop from "../Components/ScrollToTop"
 import { ArrowUpRight } from "lucide-react";
 import CosmeticHero from "../assets/CosmeticHero.jpg";
 import Navigation from "../Components/Navigation";
@@ -32,6 +33,10 @@ function Home() {
           </div>
         </div>
       </section>
+
+      <section className="h-screen "></section>
+
+       <ScrollToTop />
     </div>
   );
 }

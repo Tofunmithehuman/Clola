@@ -176,7 +176,7 @@ function Home() {
             <p className="text-4xl font-thin">Latest Collection</p>
           </div>
 
-          <div className="flex flex-wrap items-center justify-evenly max-w-screen-2xl mx-auto gap-12 md:gap-4 mt-8 px-4">
+          <div className="grid grid-cols-2 md:flex md:flex-wrap md:items-center md:justify-evenly max-w-screen-2xl mx-auto gap-4 md:gap-12 mt-8">
             {LatestProducts.map((product) => (
               <div key={product.id} className="max-w-sm">
                 <div
@@ -186,8 +186,10 @@ function Home() {
                   <img src={product.image} alt="Product" />
                 </div>
                 <div className="text-center mt-4 pb-4">
-                  <h1 className="mb-2">{product.name}</h1>
-                  <p className="font-light">$ {product.price} USD</p>
+                  <h1 className="mb-2 text-sm md:text-base">{product.name}</h1>
+                  <p className="font-light text-sm md:text-base">
+                    $ {product.price} USD
+                  </p>
                 </div>
               </div>
             ))}
@@ -201,9 +203,7 @@ function Home() {
         </div>
       </section>
 
-       <section className="min-h-screen py-16 lg:py-24 px-4">
-        
-       </section>
+      <section className="min-h-screen py-16 lg:py-24 px-4"></section>
 
       <ScrollToTop />
     </div>

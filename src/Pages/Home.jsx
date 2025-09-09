@@ -5,13 +5,39 @@ import CosmeticHero from "../assets/CosmeticHero.jpg";
 import CosmeticOne from "../assets/CosmeticOne.jpg";
 import CosmeticTwo from "../assets/CosmeticTwo.jpg";
 import Navigation from "../Components/Navigation";
+import ProductOne from "../assets/product.png";
+import ProductTwo from "../assets/productTwo.png";
 
 function Home() {
+  const BestProducts = [
+    {
+      id: 1,
+      name: "Face Scrub",
+      price: "66.07",
+      image: ProductOne,
+      bgColor: "#faf6f5",
+    },
+    {
+      id: 2,
+      name: "Midnight Perfume",
+      price: "71.52",
+      image: ProductTwo,
+      bgColor: "#faf6f5",
+    },
+    {
+      id: 3,
+      name: "Face Scrub",
+      price: "66.07",
+      image: ProductOne,
+      bgColor: "#faf6f5",
+    },
+  ];
+
   return (
     <div>
       <Navigation />
 
-      <section className="h-screen px-4 lg:px-0">
+      <section className="min-h-screen px-4 lg:px-0">
         <div className="flex flex-col lg:flex-row items-center bg-[#f6f1e3]">
           <div className="w-full lg:w-1/2 p-8">
             <div className="text-center">
@@ -38,28 +64,61 @@ function Home() {
         </div>
       </section>
 
-       <section className="min-h-screen py-16 lg:py-24">
+      <section className="min-h-screen py-16 lg:py-24">
         <div className="max-w-5xl mx-auto px-4">
           <h1 className="text-center text-3xl md:text-4xl font-thin leading-relaxed mb-16">
-            Boutique believes in providing a personalized shopping
-            experience and exceptional customer service, just like you would
-            expect from a physical boutique.
+            Boutique believes in providing a personalized shopping experience
+            and exceptional customer service, just like you would expect from a
+            physical boutique.
           </h1>
 
           <div className="flex flex-col lg:flex-row gap-8">
-            <img src={CosmeticOne} alt="Cosmetics" className="lg:w-1/2 object-cover" />
+            <img
+              src={CosmeticOne}
+              alt="Cosmetics"
+              className="lg:w-1/2 object-cover"
+            />
 
             <div className="lg:w-1/2 flex flex-col gap-6 justify-between">
               <img src={CosmeticTwo} alt="Cosmetics" className="object-cover" />
 
               <p className="font-thin text-lg">
-                Discover our exclusive range of boutique beauty products and experience the transformative power of beauty with us.
+                Discover our exclusive range of boutique beauty products and
+                experience the transformative power of beauty with us.
               </p>
 
               <button className="border hover:bg-black hover:text-white duration-200 py-4 px-8 flex items-center justify-center w-full lg:w-auto gap-2">
                 Explore Now <ArrowUpRight />
               </button>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="min-h-screen py-16 lg:py-24 px-4">
+        <div>
+          <div className="text-center">
+            <h2 className="bg-[#fecfd7] p-4 mb-8 font-light max-w-[200px] mx-auto">
+              Glow Up With Us
+            </h2>
+            <p className="text-4xl font-thin">Best Selling Product</p>
+          </div>
+
+          <div className="flex flex-wrap items-center justify-evenly max-w-screen-2xl mx-auto gap-12 md:gap-4 mt-8 px-4">
+            {BestProducts.map((product) => (
+              <div key={product.id} className="max-w-sm">
+                <div
+                  className="bg-[#faf6f5]"
+                  style={{ backgroundColor: product.bgColor }}
+                >
+                  <img src={product.image} alt="Product" />
+                </div>
+                <div className="text-center mt-4 pb-4">
+                  <h1 className="mb-2">{product.name}</h1>
+                  <p className="font-light">$ {product.price} USD</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>

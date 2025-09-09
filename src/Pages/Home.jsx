@@ -1,14 +1,27 @@
-import React from "react";
+import { useState } from "react";
 import ScrollToTop from "../Components/ScrollToTop";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, ArrowLeft, ArrowRight } from "lucide-react";
 import CosmeticHero from "../assets/CosmeticHero.jpg";
 import CosmeticOne from "../assets/CosmeticOne.jpg";
 import CosmeticTwo from "../assets/CosmeticTwo.jpg";
 import Navigation from "../Components/Navigation";
 import ProductOne from "../assets/product.png";
 import ProductTwo from "../assets/productTwo.png";
+import Profile from "../assets/Profile.png";
 
 function Home() {
+  const [currentReview, setCurrentReview] = useState(0);
+
+  const nextReview = () => {
+    setCurrentReview((prev) => (prev + 1) % reviewsData.length);
+  };
+
+  const prevReview = () => {
+    setCurrentReview(
+      (prev) => (prev - 1 + reviewsData.length) % reviewsData.length
+    );
+  };
+
   const BestProducts = [
     {
       id: 1,
@@ -74,6 +87,44 @@ function Home() {
       price: "71.52",
       image: ProductTwo,
       bgColor: "#faf6f5",
+    },
+  ];
+
+  const reviewsData = [
+    {
+      id: 1,
+      text: "I absolutely love the products I purchased from this boutique! The quality is exceptional, and my skin has never looked better. The packaging is also beautiful, making it a luxurious experience every time I use them",
+      author: "Cody Fisher",
+      location: "New York, USA",
+      profileImage: Profile,
+    },
+    {
+      id: 2,
+      text: "Amazing customer service and The face scrub has transformed my skincare routine completely. I've been using it for 3 months now and the results are incredible. Will definitely be ordering again",
+      author: "Sarah Johnson",
+      location: "Los Angeles, CA",
+      profileImage: Profile,
+    },
+    {
+      id: 3,
+      text: "The midnight perfume is absolutely divine! It lasts all day and gets compliments everywhere I go. The boutique's attention to detail in packaging and product quality is unmatched. Five stars",
+      author: "Emily Chen",
+      location: "Miami, FL",
+      profileImage: Profile,
+    },
+    {
+      id: 4,
+      text: "I was skeptical about online beauty shopping, but this boutique exceeded all my expectations. The personalized recommendations were spot-on, and my skin looks radiant. Thank you for the amazing experience",
+      author: "Jessica Williams",
+      location: "Chicago, IL",
+      profileImage: Profile,
+    },
+    {
+      id: 5,
+      text: "This is the best beauty boutique I've ever shopped at and Their products are very organic, effective, and beautifully packaged. The vitamin C serum has become my holy grail. Couldn't be happier",
+      author: "Maria Rodriguez",
+      location: "Phoenix, AZ",
+      profileImage: Profile,
     },
   ];
 
@@ -203,7 +254,66 @@ function Home() {
         </div>
       </section>
 
-      <section className="min-h-screen py-16 lg:py-24 px-4"></section>
+      <section className="min-h-[500px] py-16 lg:py-24 px-4 md:px-20 bg-[#f7f0e3]">
+        <div className="max-w-5xl mx-auto">
+          <blockquote className="font-thin text-xl sm:text-3xl max-w-5xl leading-relaxed transition-all duration-500 ease-in-out">
+            "{reviewsData[currentReview].text}"
+          </blockquote>
+
+          <div className="flex items-center gap-4 mt-8">
+            <img
+              src={reviewsData[currentReview].profileImage}
+              alt={`${reviewsData[currentReview].author} profile`}
+              className="w-20 h-20 rounded-full object-cover transition-all duration-500 ease-in-out"
+            />
+            <div className="transition-all duration-500 ease-in-out">
+              <h1 className="font-medium">
+                {reviewsData[currentReview].author}
+              </h1>
+              <p className="text-gray-600">
+                {reviewsData[currentReview].location}
+              </p>
+            </div>
+          </div>
+
+          <div className="flex items-center justify-between sm:justify-end gap-8 mt-4">
+            <button
+              onClick={prevReview}
+              className="border hover:bg-black hover:text-white duration-200 p-4 rounded-full flex items-center justify-center w-full sm:w-auto gap-2 mt-8 disabled:opacity-50"
+              aria-label="Previous review"
+            >
+              <ArrowLeft />
+            </button>
+
+            <button
+              onClick={nextReview}
+              className="border hover:bg-black hover:text-white duration-200 p-4 rounded-full flex items-center justify-center w-full sm:w-auto gap-2 mt-8 disabled:opacity-50"
+              aria-label="Next review"
+            >
+              <ArrowRight />
+            </button>
+          </div>
+
+          {/* Optional: Review indicators */}
+          <div className="flex justify-center gap-2 mt-6">
+            {reviewsData.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentReview(index)}
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                  currentReview === index ? "bg-black" : "bg-gray-300"
+                }`}
+                aria-label={`Go to review ${index + 1}`}
+              />
+            ))}
+          </div>
+
+          {/* Optional: Review counter */}
+          <div className="text-center mt-4 text-sm text-gray-500">
+            {currentReview + 1} of {reviewsData.length}
+          </div>
+        </div>
+      </section>
 
       <ScrollToTop />
     </div>

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import ScrollToTop from "../Components/ScrollToTop";
-import { ArrowUpRight, ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowUpRight, ArrowLeft, ArrowRight, ArrowDown } from "lucide-react";
 import CosmeticHero from "../assets/CosmeticHero.jpg";
 import CosmeticOne from "../assets/CosmeticOne.jpg";
 import CosmeticTwo from "../assets/CosmeticTwo.jpg";
@@ -307,11 +307,103 @@ function Home() {
               />
             ))}
           </div>
+        </div>
+      </section>
 
-          {/* Optional: Review counter */}
-          <div className="text-center mt-4 text-sm text-gray-500">
-            {currentReview + 1} of {reviewsData.length}
+      <section className="min-h-screen">
+        <div className=" bg-[#f7f0e3] w-full px-6 py-24 sm:py-32 lg:px-8">
+          <div className="text-center">
+            <h2 className="text-4xl tracking-tight text-balance sm:text-5xl">
+              Contact Us
+            </h2>
+            <p className="mt-2 text-lg/8 text-gray-600 font-thin">
+              You can send us a message and we will get back to you as soon as possible
+            </p>
           </div>
+          <form
+            className="mx-auto mt-16 max-w-3xl sm:mt-20"
+          >
+            <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
+              <div>
+                <label
+                  htmlFor="first-name"
+                  className="block text-sm/6 font-light text-black"
+                >
+                  First name
+                </label>
+                <div className="mt-2.5">
+                  <input
+                    id="first-name"
+                    name="first-name"
+                    type="text"
+                    autoComplete="given-name"
+                    className="block border border-gray-400 font-light w-full rounded bg-white/5 px-3.5 py-2 text-base text-grey-700 placeholder:text-gray-500 focus:outline-0"
+                  />
+                </div>
+              </div>
+              <div>
+                <label
+                  htmlFor="last-name"
+                  className="block text-sm/6 font-light text-black"
+                >
+                  Last name
+                </label>
+                <div className="mt-2.5">
+                  <input
+                    id="last-name"
+                    name="last-name"
+                    type="text"
+                    autoComplete="family-name"
+                    className="block border border-gray-400 font-light w-full rounded bg-white/5 px-3.5 py-2 text-base text-grey-700 placeholder:text-gray-500 focus:outline-0"
+                  />
+                </div>
+              </div>
+              
+              <div className="sm:col-span-2">
+                <label
+                  htmlFor="email"
+                  className="block text-sm/6 font-light text-black"
+                >
+                  Email
+                </label>
+                <div className="mt-2.5">
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    autoComplete="email"
+                    className="block border border-gray-400 font-light w-full rounded bg-white/5 px-3.5 py-2 text-base text-grey-700 placeholder:text-gray-500 focus:outline-0"
+                  />
+                </div>
+              </div>
+              <div className="sm:col-span-2">
+                <label
+                  htmlFor="message"
+                  className="block font-light text-sm/6 text-black"
+                >
+                  Message
+                </label>
+                <div className="mt-2.5">
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows={4}
+                    className="block border border-gray-400 font-light w-full rounded bg-white/5 px-3.5 py-2 text-base text-grey-700 placeholder:text-gray-500 focus:outline-0"
+                    defaultValue={""}
+                  />
+                </div>
+              </div>
+              
+            </div>
+            <div className="mt-10">
+              <button
+                type="submit"
+                className=" bg-black text-white duration-200 p-4 w-full flex items-center justify-center gap-2 mt-8 disabled:opacity-50"
+              >
+                Let's talk
+              </button>
+            </div>
+          </form>
         </div>
       </section>
 

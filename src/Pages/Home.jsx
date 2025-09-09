@@ -32,6 +32,50 @@ function Home() {
       bgColor: "#faf6f5",
     },
   ];
+  const LatestProducts = [
+    {
+      id: 1,
+      name: "Face Scrub",
+      price: "66.07",
+      image: ProductOne,
+      bgColor: "#faf6f5",
+    },
+    {
+      id: 2,
+      name: "Midnight Perfume",
+      price: "71.52",
+      image: ProductTwo,
+      bgColor: "#faf6f5",
+    },
+    {
+      id: 3,
+      name: "Face Scrub",
+      price: "66.07",
+      image: ProductOne,
+      bgColor: "#faf6f5",
+    },
+    {
+      id: 4,
+      name: "Midnight Perfume",
+      price: "71.52",
+      image: ProductTwo,
+      bgColor: "#faf6f5",
+    },
+    {
+      id: 5,
+      name: "Face Scrub",
+      price: "66.07",
+      image: ProductOne,
+      bgColor: "#faf6f5",
+    },
+    {
+      id: 6,
+      name: "Midnight Perfume",
+      price: "71.52",
+      image: ProductTwo,
+      bgColor: "#faf6f5",
+    },
+  ];
 
   return (
     <div>
@@ -122,6 +166,44 @@ function Home() {
           </div>
         </div>
       </section>
+
+      <section className="min-h-screen py-16 lg:py-24 px-4">
+        <div>
+          <div className="text-center">
+            <h2 className="bg-[#fecfd7] p-4 mb-8 font-light max-w-[200px] mx-auto">
+              New Arrivals
+            </h2>
+            <p className="text-4xl font-thin">Latest Collection</p>
+          </div>
+
+          <div className="flex flex-wrap items-center justify-evenly max-w-screen-2xl mx-auto gap-12 md:gap-4 mt-8 px-4">
+            {LatestProducts.map((product) => (
+              <div key={product.id} className="max-w-sm">
+                <div
+                  className="bg-[#faf6f5]"
+                  style={{ backgroundColor: product.bgColor }}
+                >
+                  <img src={product.image} alt="Product" />
+                </div>
+                <div className="text-center mt-4 pb-4">
+                  <h1 className="mb-2">{product.name}</h1>
+                  <p className="font-light">$ {product.price} USD</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="flex items-center justify-center mt-20">
+            <button className="border hover:bg-black hover:text-white duration-200 py-4 px-8 flex items-center justify-center w-full lg:w-auto gap-2">
+              View All Products <ArrowUpRight />
+            </button>
+          </div>
+        </div>
+      </section>
+
+       <section className="min-h-screen py-16 lg:py-24 px-4">
+        
+       </section>
 
       <ScrollToTop />
     </div>

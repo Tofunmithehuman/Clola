@@ -17,7 +17,6 @@ function Navigation() {
 
             <ul className="hidden lg:flex items-center justify-between gap-8">
               <Link>SHOP</Link>
-              <Link>CATEGORY</Link>
               <Link>REVIEWS</Link>
               <Link>CONTACT</Link>
             </ul>
